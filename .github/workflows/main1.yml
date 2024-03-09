@@ -75,7 +75,9 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:new-tag
+            tags: >
+              ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:new-tag,
+              ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:latest
           
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
