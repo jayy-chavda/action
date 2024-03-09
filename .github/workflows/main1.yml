@@ -67,14 +67,7 @@ jobs:
           with:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-        - name: Push to Docker Hub
-          uses: docker/build-push-action@v2
-          with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-            repository: jayychavda/nodejs-demo
-            tag: new-tag
+            
   
         - name: Build and push
           uses: docker/build-push-action@v2
@@ -82,12 +75,12 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:latest
+            tags: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:new-tag
           
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
           with:
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:latest
+            image: ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:new-tag
             run: |
               echo "runing the docker image"
               echo "Testing the nodejs  app endpoints"
