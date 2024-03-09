@@ -34,13 +34,13 @@ jobs:
       # install applicaion dependencies
       - name: Install dependencies
         run: |
-          cd master
+          cd action/blob/master/package.json
           npm install
           npm ci 
       # build and test the apps     
       - name: build
         run: |
-          cd master
+          cd action/blob/master/package.json
           npm run build
           npm run test
   push_to_Docker_Hub:
