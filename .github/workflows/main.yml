@@ -34,7 +34,7 @@ jobs:
       # install applicaion dependencies
       - name: Install dependencies
         run: |
-          cd action/blob/master
+          
           npm install
           npm ci 
       # build and test the apps     
