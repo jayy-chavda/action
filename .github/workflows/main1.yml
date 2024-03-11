@@ -76,7 +76,7 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: >
-              jayychavda/nodejs-demo:${{ github.sha | slice: o, 7 }}-${{ github.run_number }}
+              jayychavda/nodejs-demo:${{ github.sha:8 }}-${{ github.run_number }}
             #${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:wolf,
               #${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:owl
         
