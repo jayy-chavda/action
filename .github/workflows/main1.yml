@@ -75,7 +75,7 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-             run: |
+            run: |
               TAG="sha-$(echo $GITHUB_SHA | cut -c1-7)"
               docker buildx create --use
               docker buildx build -t your-username/your-repo:$TAG -t your-username/your-repo:latest --push .
