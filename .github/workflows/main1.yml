@@ -76,10 +76,10 @@ jobs:
             file: ./Dockerfile
             push: true
             tags: >
-              jayychavda/nodejs-demo:${{ github.sha }}
+              jayychavda/nodejs-demo:${{ github.sha }}-${{ github.run_number }}
             #${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:wolf,
               #${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:owl
-          
+        
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
           with:
