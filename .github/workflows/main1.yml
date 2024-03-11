@@ -75,14 +75,10 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-            run: |
-              TAG="sha-$(echo $GITHUB_SHA | cut -c1-7)"
-              docker buildx create --use
-              docker buildx build -t jayychavda/nodejs-demo:$TAG -t jayychavda/nodejs-demo:latest --push .
-      
-            #tags: >
-              #${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:wolf,
-             # ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:owl
+            tags: >
+              jayychavda/nodejs-demo:${{ github.sha }}
+            #${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:wolf,
+              #${{ secrets.DOCKERHUB_USERNAME }}/nodejs-demo:owl
           
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
